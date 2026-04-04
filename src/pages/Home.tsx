@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Instagram, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 import { Image } from '@/components/ui/Image';
+import { Seo, seoSiteUrl } from '@/components/seo/Seo';
 import logoImage from '../../Images/logo.jpeg';
 import tigerNestImage from '../../Images/tigernest.png';
 import punakhaDzongImage from '../../Images/punakhadzong.png';
@@ -125,8 +126,51 @@ export function Home() {
   const y = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(smoothProgress, [0, 1], [1, 0]);
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'TravelAgency',
+        '@id': `${seoSiteUrl}/#travel-agency`,
+        name: 'Newartourandtravels',
+        alternateName: ['Newar Tour and Travels', 'Jaigaon Tour and Travels', 'Bhutan Tour and Travels'],
+        url: seoSiteUrl,
+        image: `${seoSiteUrl}/favicon.jpeg`,
+        telephone: ['+91-7547993621', '+91-8927087805'],
+        email: 'Newartourandtravel12@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'KB Pradhan Plaza, NS Road',
+          addressLocality: 'Jaigaon',
+          addressRegion: 'West Bengal',
+          addressCountry: 'IN'
+        },
+        areaServed: ['Jaigaon', 'Bhutan', 'Sikkim', 'Darjeeling', 'Meghalaya'],
+        sameAs: ['https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==']
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${seoSiteUrl}/#website`,
+        name: 'Newartourandtravels',
+        url: seoSiteUrl,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${seoSiteUrl}/packages?search={search_term_string}`,
+          'query-input': 'required name=search_term_string'
+        }
+      }
+    ]
+  };
+
   return (
     <div className="w-full">
+      <Seo
+        title="Newartourandtravels | Jaigaon & Bhutan Tour and Travels"
+        description="Newartourandtravels is a trusted Jaigaon tour and travels agency for Bhutan, Sikkim, Darjeeling, and Meghalaya packages with custom planning and local support."
+        path="/"
+        keywords="newartourandtravels, jaigaon tour and travels, bhutan tour and travels, bhutan package from jaigaon, northeast tour packages"
+        schema={schema}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary">
         {/* Background Image */}
@@ -254,10 +298,10 @@ export function Home() {
               transition={{ duration: 1 }}
             >
               <span className="font-cursive text-4xl text-accent mb-4 block">Our Story</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight uppercase tracking-tight">Welcome to Newar Tour and Travels</h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight uppercase tracking-tight">Welcome to Newartourandtravels</h2>
               <div className="w-20 h-[2px] bg-accent mb-10"></div>
               <p className="text-gray-300 font-sub text-lg leading-relaxed mb-8">
-                Welcome to Newar Tours and Travel, your trusted partner in exploring the majestic eastern frontier. From the high-altitude serenity of Sikkim to the cloud-kissed hills of Meghalaya, we bring you the very best of India&apos;s Northeast and the mystical Kingdom of Bhutan.
+                Welcome to Newartourandtravels, your trusted Jaigaon tour and travels partner for the eastern frontier. From the high-altitude serenity of Sikkim to the cloud-kissed hills of Meghalaya, we bring you the very best of India&apos;s Northeast and the mystical Kingdom of Bhutan.
               </p>
               <div className="text-gray-400 font-sub text-lg leading-relaxed mb-8">
                 <p className="text-white font-semibold mb-3">Our Destinations:</p>
@@ -266,7 +310,7 @@ export function Home() {
                 <p>Meghalaya: Step into the wettest, greenest, and most magical landscapes on Earth.</p>
               </div>
               <p className="text-gray-400 font-sub text-lg leading-relaxed mb-12">
-                At Newar, we handle the logistics so you can handle the memories. With a dedicated team, hand-picked stays, and a passion for hospitality, we ensure every mile you travel with us is a mile of pure joy.
+                As your Bhutan tour and travels team from Jaigaon, we handle permits, planning, stays, and transport so you can focus on memories.
               </p>
               <Link to="/about" className="inline-flex items-center text-accent font-bold hover:text-accent-light transition-colors uppercase tracking-[0.2em] text-xs group">
                 Explore Our Legacy <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />

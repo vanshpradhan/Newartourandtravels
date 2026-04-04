@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'mot
 import { Clock, MapPin, Check, X, Search, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
+import { Seo, seoSiteUrl } from '@/components/seo/Seo';
 import a1Image from '../../Images/a1.png';
 import a2Image from '../../Images/a2.png';
 import a3Image from '../../Images/a3.png';
@@ -211,8 +212,28 @@ export function Packages() {
     return matchesCategory && matchesSearch;
   });
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Tour Packages',
+    url: `${seoSiteUrl}/packages`,
+    itemListElement: packages.slice(0, 10).map((pkg, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: pkg.title,
+      url: `${seoSiteUrl}/packages`
+    }))
+  };
+
   return (
     <div className="w-full">
+      <Seo
+        title="Bhutan Tour Packages from Jaigaon | Newartourandtravels"
+        description="Browse customizable Bhutan and Northeast tour packages from Jaigaon with flexible durations, premium stays, and local expertise."
+        path="/packages"
+        keywords="bhutan tour packages from jaigaon, jaigaon bhutan package, newartourandtravels packages"
+        schema={schema}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary">
         {/* Background Image */}

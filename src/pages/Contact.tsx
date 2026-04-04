@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, Shield, Award, Users, Globe } from 'l
 import { useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
+import { Seo, seoSiteUrl } from '@/components/seo/Seo';
 
 export function Contact() {
   // Form state for all fields
@@ -49,8 +50,23 @@ export function Contact() {
   const y = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(smoothProgress, [0, 1], [1, 0]);
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Newartourandtravels',
+    url: `${seoSiteUrl}/contact`,
+    description: 'Contact Newartourandtravels in Jaigaon for Bhutan tour bookings and custom travel planning.'
+  };
+
   return (
     <div className="w-full">
+      <Seo
+        title="Contact Newartourandtravels | Jaigaon Bhutan Tour Office"
+        description="Contact Newartourandtravels in Jaigaon for Bhutan permits, transport, hotels, and personalized holiday planning."
+        path="/contact"
+        keywords="contact newartourandtravels, jaigaon tour and travels contact, bhutan tour booking jaigaon"
+        schema={schema}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary">
         {/* Background Image */}

@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { Image } from '@/components/ui/Image';
+import { Seo, seoSiteUrl } from '@/components/seo/Seo';
 import a1Image from '../../Images/a1.png';
 import a2Image from '../../Images/a2.png';
 import andyImage from '../../Images/andy.png';
@@ -22,8 +23,23 @@ export function About() {
   const y = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(smoothProgress, [0, 1], [1, 0]);
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Newartourandtravels',
+    url: `${seoSiteUrl}/about`,
+    description: 'Learn about Newartourandtravels, a Jaigaon-based team specializing in Bhutan tour and travel experiences.'
+  };
+
   return (
     <div className="w-full">
+      <Seo
+        title="About Newartourandtravels | Jaigaon Tour and Travels"
+        description="Know the team behind Newartourandtravels in Jaigaon and how we design reliable Bhutan and Himalayan travel experiences."
+        path="/about"
+        keywords="about newartourandtravels, jaigaon tour and travels company, bhutan travel experts jaigaon"
+        schema={schema}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary">
         {/* Background Image */}
@@ -116,10 +132,10 @@ export function About() {
               transition={{ duration: 0.8 }}
             >
               <span className="font-cursive text-4xl text-accent mb-4 block">Our Story</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-tight">Welcome to Newar Tour and Travels</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-tight">Welcome to Newartourandtravels</h2>
               <div className="w-20 h-[2px] bg-accent mb-8"></div>
               <p className="text-gray-400 font-sub leading-relaxed mb-6 text-lg">
-                Welcome to Newar Tours and Travel, your trusted partner in exploring the majestic eastern frontier. From the high-altitude serenity of Sikkim to the cloud-kissed hills of Meghalaya, we bring you the very best of India's Northeast and the mystical Kingdom of Bhutan.
+                Welcome to Newartourandtravels, your trusted Jaigaon tour and travels partner in exploring the majestic eastern frontier. From the high-altitude serenity of Sikkim to the cloud-kissed hills of Meghalaya, we bring you the very best of India's Northeast and the mystical Kingdom of Bhutan.
               </p>
               <h3 className="text-white font-bold mb-4 text-2xl">Our Destinations:</h3>
               <p className="text-gray-400 font-sub leading-relaxed mb-3 text-lg">
@@ -132,7 +148,7 @@ export function About() {
                 Meghalaya: Step into the wettest, greenest, and most magical landscapes on Earth.
               </p>
               <p className="text-gray-400 font-sub leading-relaxed text-lg">
-                At Newar, we handle the logistics so you can handle the memories. With a dedicated team, hand-picked stays, and a passion for hospitality, we ensure every mile you travel with us is a mile of pure joy.
+                As a Bhutan tour and travels team based in Jaigaon, we handle planning and logistics so you can focus on memories.
               </p>
             </motion.div>
             <motion.div 
@@ -216,7 +232,7 @@ export function About() {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-tight">Meet Our Founder</h2>
               <div className="w-20 h-[2px] bg-accent mb-8"></div>
               <p className="text-gray-400 font-sub leading-relaxed mb-6 text-lg italic">
-                "Travel is not just about seeing new places; it's about seeing the world with new eyes. At NEWAR, we don't just sell tours; we craft life-changing experiences that stay with you forever."
+                "Travel is not just about seeing new places; it's about seeing the world with new eyes. At Newartourandtravels, we don't just sell tours; we craft life-changing experiences that stay with you forever."
               </p>
               <p className="text-gray-400 font-sub leading-relaxed mb-8 text-lg">
                 Hi, I’m Andy — your travel partner and host. I specialize in creating seamless and memorable journeys. If you have any questions or need assistance, feel free to reach out anytime.

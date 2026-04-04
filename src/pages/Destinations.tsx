@@ -3,6 +3,7 @@ import { MapPin, Calendar, Info } from 'lucide-react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
+import { Seo, seoSiteUrl } from '@/components/seo/Seo';
 import tigerNestImage from '../../Images/tigernest.png';
 
 const destinations = [
@@ -141,8 +142,23 @@ export function Destinations() {
   const y = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(smoothProgress, [0, 1], [1, 0]);
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Bhutan and Northeast Destinations',
+    url: `${seoSiteUrl}/destinations`,
+    description: 'Explore top travel destinations in Bhutan, Sikkim, Darjeeling, and Meghalaya from a trusted Jaigaon tour operator.'
+  };
+
   return (
     <div className="w-full">
+      <Seo
+        title="Bhutan Destinations | Newartourandtravels Jaigaon"
+        description="Discover handpicked Bhutan, Sikkim, Darjeeling, and Meghalaya destinations with expert Jaigaon travel support."
+        path="/destinations"
+        keywords="bhutan destinations, jaigaon bhutan tour places, sikkim darjeeling meghalaya sightseeing"
+        schema={schema}
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary">
         {/* Background Image */}
