@@ -1,56 +1,17 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Instagram, Facebook, ArrowRight, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-secondary text-white pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full bg-noise opacity-20 pointer-events-none"></div>
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        {/* Newsletter Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20 pb-20 border-b border-white/10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">
-              Join the <span className="text-accent">NEWAR</span> Inner Circle
-            </h3>
-            <p className="text-white/60 text-lg max-w-md font-sub">
-              Receive exclusive travel guides, early access to new packages, and stories from the heart of the Himalayas.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="relative flex-grow group">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="w-full bg-white/5 border border-white/10 rounded-full px-8 py-4 text-white focus:outline-none focus:border-accent transition-all duration-300 group-hover:bg-white/10"
-                />
-                <Mail className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30 group-focus-within:text-accent transition-colors" />
-              </div>
-              <button className="bg-accent hover:bg-accent-light text-primary font-bold px-10 py-4 rounded-full transition-all duration-300 flex items-center justify-center group active:scale-95">
-                Subscribe <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </button>
-            </form>
-            <p className="text-[10px] text-white/30 mt-4 uppercase tracking-[0.2em] font-black">
-              * We respect your privacy. Unsubscribe at any time.
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,8 +30,9 @@ export function Footer() {
             </p>
             <div className="flex space-x-5">
               {[
-                { icon: Instagram, href: "https://www.instagram.com/newartourandtravels" },
-                { icon: Facebook, href: "https://www.facebook.com" }
+                { icon: Instagram, href: "https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                { icon: Facebook, href: "https://www.facebook.com/share/17AhznbfVj/?mibextid=wwXIfr" },
+                { icon: MessageCircle, href: "https://wa.me/917547993621" }
               ].map((social, i) => (
                 <a 
                   key={i}
@@ -83,6 +45,12 @@ export function Footer() {
                 </a>
               ))}
             </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center mt-6 px-6 py-3 rounded-full bg-accent text-primary font-bold uppercase tracking-[0.12em] text-xs hover:bg-accent-light transition-colors"
+            >
+              Contact Us
+            </Link>
           </motion.div>
 
           {/* Quick Links */}
@@ -111,31 +79,6 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Popular Packages */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] mb-10 text-accent">Featured Journeys</h4>
-            <ul className="space-y-4">
-              {[
-                'Bhutan Express Getaway',
-                'Sikkim Himalayan Escape',
-                'Darjeeling Tea Valley Retreat',
-                'Meghalaya Waterfall Wonders'
-              ].map((tour) => (
-                <li key={tour}>
-                  <Link to="/packages" className="text-white/50 hover:text-white transition-all duration-300 flex items-center group text-sm font-sub">
-                    <span className="w-0 h-[1px] bg-accent mr-0 group-hover:w-4 group-hover:mr-3 transition-all duration-300"></span>
-                    {tour}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -150,7 +93,7 @@ export function Footer() {
                   <MapPin className="w-4 h-4 text-accent" />
                 </div>
                 <span className="text-white/50 text-sm leading-relaxed font-sub group-hover:text-white transition-colors">
-                  KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal, India
+                  KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal
                 </span>
               </li>
               <li className="flex items-center group">
@@ -158,15 +101,15 @@ export function Footer() {
                   <Phone className="w-4 h-4 text-accent" />
                 </div>
                 <div className="flex flex-col">
-                  <a href="tel:+917547993621" className="text-white/50 text-sm hover:text-white transition-colors font-sub">+91 7547993621</a>
-                  <a href="tel:+918927087805" className="text-white/50 text-sm hover:text-white transition-colors font-sub">+91 8927087805</a>
+                  <a href="tel:7547993621" className="text-white/50 text-sm hover:text-white transition-colors font-sub">7547993621</a>
+                  <a href="tel:8927087805" className="text-white/50 text-sm hover:text-white transition-colors font-sub">8927087805</a>
                 </div>
               </li>
               <li className="flex items-center group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-accent/10 transition-colors">
                   <Mail className="w-4 h-4 text-accent" />
                 </div>
-                <a href="mailto:info@newartravels.com" className="text-white/50 text-sm hover:text-white transition-colors font-sub group-hover:text-white">info@newartravels.com</a>
+                <a href="mailto:Newartourandtravel12@gmail.com" className="text-white/50 text-sm hover:text-white transition-colors font-sub group-hover:text-white">Newartourandtravel12@gmail.com</a>
               </li>
             </ul>
           </motion.div>

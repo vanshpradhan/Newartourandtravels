@@ -36,7 +36,7 @@ export function About() {
               alt="Darjeeling Tea Gardens" 
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
-              referrerPolicy="no-referrer"
+              
             />
           </motion.div>
           {/* Cinematic luxury gradient overlay */}
@@ -141,7 +141,7 @@ export function About() {
                       alt="Darjeeling Tea Gardens" 
                       className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                       containerClassName="w-full h-80"
-                      referrerPolicy="no-referrer"
+                      
                     />
                   </div>
                   <div className="glass p-6 rounded-sm border-l-2 border-accent gold-glow">
@@ -155,7 +155,7 @@ export function About() {
                       alt="Tiger's Nest Monastery Bhutan" 
                       className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                       containerClassName="w-full h-[400px]"
-                      referrerPolicy="no-referrer"
+                      
                     />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export function About() {
                   alt="Bhutanese Person Culture" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                   containerClassName="w-full h-full"
-                  referrerPolicy="no-referrer"
+                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
                 <div className="absolute bottom-10 left-10 right-10 text-center">

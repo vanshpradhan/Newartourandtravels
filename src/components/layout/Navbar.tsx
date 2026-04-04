@@ -3,12 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin, Phone, MessageCircle, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
+import logoImage from '../../../Images/logonav.png';
 
 const navLinks = [
   { name: 'Destination', path: '/destinations' },
-  { name: 'Our Activity', path: '/packages' },
-  { name: 'Tailor-Made Trips', path: '/contact' },
-  { name: 'Who We Are?', path: '/about' },
+  { name: 'Packages', path: '/packages' },
+  { name: 'Contact Us', path: '/contact' },
+  { name: 'About Us', path: '/about' },
 ];
 
 export function Navbar() {
@@ -40,22 +41,34 @@ export function Navbar() {
         <div className={cn("hidden lg:flex justify-end items-center py-2 text-[0.6rem] font-black tracking-[0.2em] transition-all duration-700 uppercase", 
           isScrolled || !isHome ? "opacity-0 h-0 overflow-hidden py-0" : "opacity-60 text-white")}>
           <div className="flex items-center space-x-8">
-            <a href="mailto:info@newar.com" className="flex items-center hover:text-accent transition-colors">
-              <Mail className="w-3 h-3 mr-2" /> info@newar.com
+            <a href="mailto:Newartourandtravel12@gmail.com" className="flex items-center hover:text-accent transition-colors">
+              <Mail className="w-3 h-3 mr-2" /> Newartourandtravel12@gmail.com
             </a>
-            <a href="tel:+917547993621" className="flex items-center hover:text-accent transition-colors">
-              <Phone className="w-3 h-3 mr-2" /> +91 7547993621
+            <a href="tel:7547993621" className="flex items-center hover:text-accent transition-colors">
+              <Phone className="w-3 h-3 mr-2" /> 7547993621, 8927087805
             </a>
           </div>
         </div>
 
         <div className={cn("flex items-center justify-between transition-all duration-700", isScrolled ? "h-16 md:h-20" : "h-20 md:h-28")}>
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-center justify-center group">
-            <span className={cn("font-bold text-2xl md:text-3xl tracking-[0.3em] transition-all duration-700 uppercase relative", textColor)}>
-              NEWAR
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-[1px] bg-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
-            </span>
+          <Link to="/" className="flex items-center gap-3 md:gap-4 group">
+            <img
+              src={logoImage}
+              alt="Newar logo"
+              className="h-10 w-10 md:h-12 md:w-12 object-contain"
+              loading="eager"
+              decoding="async"
+            />
+            <div className="flex flex-col items-start justify-center">
+              <span className={cn("font-bold text-2xl md:text-3xl tracking-[0.3em] transition-all duration-700 uppercase relative leading-none", textColor)}>
+                NEWAR
+                <span className="absolute -bottom-1 left-0 w-8 h-[1px] bg-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              </span>
+              <span className="mt-0.5 text-lg md:text-xl font-cursive text-white/85 leading-none tracking-normal normal-case">
+                Tours and Travels
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -112,7 +125,7 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="pt-8 border-t border-white/10 flex flex-col space-y-4">
-                <a href="tel:+917547993621" className="border border-accent text-accent text-center font-medium px-6 py-4 rounded-full uppercase tracking-wider text-sm flex items-center justify-center hover:bg-accent/10 transition-colors">
+                <a href="tel:7547993621" className="border border-accent text-accent text-center font-medium px-6 py-4 rounded-full uppercase tracking-wider text-sm flex items-center justify-center hover:bg-accent/10 transition-colors">
                   <Phone className="w-4 h-4 mr-2" /> Call Now
                 </a>
                 <a href="https://wa.me/917547993621" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white text-center font-medium px-6 py-4 rounded-full uppercase tracking-wider text-sm flex items-center justify-center hover:bg-[#20b958] transition-colors">

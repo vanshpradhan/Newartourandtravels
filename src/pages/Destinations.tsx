@@ -3,13 +3,14 @@ import { MapPin, Calendar, Info, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
+import tigerNestImage from '../../Images/tigernest.png';
 
 const destinations = [
   {
     id: 'tiger-nest',
     name: 'Tiger Nest Monastery',
     location: 'Paro',
-    image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&w=600&fit=crop',
+    image: tigerNestImage,
     description: 'Paro Taktsang, also known as the Tiger\'s Nest, is a prominent Himalayan Buddhist sacred site and the temple complex is located in the cliffside of the upper Paro valley in Bhutan. It is one of the most venerated and famous of Bhutan\'s monasteries.',
     bestTime: 'March to May and September to November',
     tips: 'The hike takes about 2-3 hours one way. Wear comfortable trekking shoes and carry water. Start early to avoid the midday sun.'
@@ -156,7 +157,7 @@ export function Destinations() {
               alt="Himalayan Luxury Landscape" 
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
-              referrerPolicy="no-referrer"
+              
             />
           </motion.div>
           {/* Cinematic luxury gradient overlay */}
@@ -243,7 +244,7 @@ export function Destinations() {
                       src={(() => {
                         switch(dest.id) {
                           case 'tiger-nest':
-                            return 'https://images.pexels.com/photos/35402324/pexels-photo-35402324.jpeg?auto=compress&w=1200&fit=crop';
+                            return tigerNestImage;
                           case 'dochula-pass':
                             return 'https://images.pexels.com/photos/33296797/pexels-photo-33296797.jpeg?auto=compress&w=1200&fit=crop';
                           case 'punakha-dzong':
@@ -275,7 +276,7 @@ export function Destinations() {
                       alt={dest.name} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                       containerClassName="w-full h-full"
-                      referrerPolicy="no-referrer"
+                      
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
                   </div>

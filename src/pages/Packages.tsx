@@ -212,7 +212,7 @@ export function Packages() {
               alt="Himalayan Landscape" 
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
-              referrerPolicy="no-referrer"
+              
             />
           </motion.div>
           {/* Cinematic luxury gradient overlay */}
@@ -276,7 +276,7 @@ export function Packages() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-secondary border-b border-white/10 sticky top-[80px] md:top-[96px] z-30 shadow-sm relative overflow-hidden">
+      <section className="py-12 bg-secondary border-b border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-noise pointer-events-none"></div>
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -336,7 +336,7 @@ export function Packages() {
                       alt={pkg.title} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                       containerClassName="w-full h-full"
-                      referrerPolicy="no-referrer"
+                      
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
                     <div className="absolute top-6 left-6 glass px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.25em] text-accent rounded-sm shadow-sm border border-accent/20 gold-glow">
@@ -427,7 +427,7 @@ export function Packages() {
                   src={selectedPackage.image} 
                   alt={selectedPackage.title} 
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
+                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1a] via-transparent to-transparent md:bg-gradient-to-r"></div>
                 <div className="absolute bottom-8 left-8 right-8">

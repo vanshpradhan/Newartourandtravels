@@ -1,8 +1,20 @@
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Shield, Star, Heart, CheckCircle, Award, Users, Instagram, ChevronLeft, ChevronRight, Search, Briefcase, Activity, DollarSign } from 'lucide-react';
+import { ArrowRight, Heart, Instagram, ChevronLeft, ChevronRight, Search, Briefcase, Activity, DollarSign } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 import { Image } from '@/components/ui/Image';
+import logoImage from '../../Images/logo.jpeg';
+import tigerNestImage from '../../Images/tigernest.png';
+import punakhaDzongImage from '../../Images/punakhadzong.png';
+import changuLakeImage from '../../Images/changulake.png';
+import a1Image from '../../Images/a1.png';
+import darjeelingImage from '../../Images/darjeeling.png';
+import tour1Image from '../../Images/tour1.jpeg';
+import tour2Image from '../../Images/tour2.jpeg';
+import tour3Image from '../../Images/tour3 (2).jpeg';
+import tour4Image from '../../Images/tour4.jpeg';
+import tour5Image from '../../Images/tour5.jpeg';
+import tour6Image from '../../Images/tour6.jpeg';
 
 const heroSlides = [
   {
@@ -40,61 +52,38 @@ const heroSlides = [
 ];
 
 const destinations = [
-  { name: 'Tiger Nest Monastery', image: 'https://images.pexels.com/photos/35402324/pexels-photo-35402324.jpeg?auto=compress&w=600&fit=crop' },
-  { name: 'Punakha Dzong', image: 'https://images.pexels.com/photos/9982525/pexels-photo-9982525.jpeg?auto=compress&w=600&fit=crop' },
-  { name: 'Tsomgo Lake', image: 'https://images.pexels.com/photos/10477351/pexels-photo-10477351.jpeg?auto=compress&w=600&fit=crop' },
-  { name: 'Tiger Hill', image: 'https://images.pexels.com/photos/33263641/pexels-photo-33263641.jpeg?auto=compress&w=600&fit=crop' },
-  { name: 'Root Bridge', image: 'https://images.pexels.com/photos/34017584/pexels-photo-34017584.jpeg?auto=compress&w=600&fit=crop' },
+  { name: 'Tiger Nest Monastery', image: tigerNestImage },
+  { name: 'Punakha Dzong', image: punakhaDzongImage },
+  { name: 'Tsomgo Lake', image: changuLakeImage },
 ];
 
 const packages = [
-  { title: 'Bhutan Express Getaway', duration: '2N/3D', image: 'https://images.pexels.com/photos/35402324/pexels-photo-35402324.jpeg?auto=compress&w=600&fit=crop', category: 'Bhutan' },
-  { title: 'Sikkim Himalayan Escape', duration: '4N/5D', image: 'https://images.pexels.com/photos/17332516/pexels-photo-17332516.jpeg?auto=compress&w=600&fit=crop', category: 'Sikkim' },
-  { title: 'Darjeeling Tea Valley Retreat', duration: '3N/4D', image: 'https://images.pexels.com/photos/33263641/pexels-photo-33263641.jpeg?auto=compress&w=600&fit=crop', category: 'Darjeeling' },
+  { title: 'Bhutan Express Getaway', duration: '2N/3D', image: a1Image, category: 'Bhutan' },
+  { title: 'Darjeeling Tea Valley Retreat', duration: '3N/4D', image: darjeelingImage, category: 'Darjeeling' },
   { title: 'Meghalaya Waterfall Wonders', duration: '4N/5D', image: 'https://images.pexels.com/photos/19469036/pexels-photo-19469036.jpeg?auto=compress&w=600&fit=crop', category: 'Meghalaya' },
 ];
 
-const testimonials = [
-  { name: 'Sarah Jenkins', location: 'United Kingdom', text: 'An absolutely magical experience. The attention to detail and the luxury accommodations provided by NEWAR made our Bhutan trip unforgettable.', rating: 5 },
-  { name: 'Michael Chen', location: 'Singapore', text: 'From the moment we landed in Paro, everything was seamless. Our guide was incredibly knowledgeable and the itinerary was perfectly paced.', rating: 5 },
-  { name: 'Elena Rodriguez', location: 'Spain', text: 'The Sikkim and Darjeeling tour exceeded all expectations. Waking up to the view of Kanchenjunga from our premium suite was a dream come true.', rating: 5 },
+const clientTourMemories = [
+  { id: 1, image: tour1Image },
+  { id: 2, image: tour2Image },
+  { id: 3, image: tour3Image },
+  { id: 4, image: tour4Image },
+  { id: 5, image: tour5Image },
+  { id: 6, image: tour6Image },
 ];
 
 const instagramPosts = [
-  { id: 1, image: 'https://images.pexels.com/photos/19469036/pexels-photo-19469036.jpeg?auto=compress&w=400&fit=crop', link: 'https://instagram.com' },
-  { id: 2, image: 'https://images.pexels.com/photos/9982525/pexels-photo-9982525.jpeg?auto=compress&w=400&fit=crop', link: 'https://instagram.com' },
-  { id: 3, image: 'https://images.pexels.com/photos/35402324/pexels-photo-35402324.jpeg?auto=compress&w=400&fit=crop', link: 'https://instagram.com' },
-  { id: 4, image: 'https://images.pexels.com/photos/33296797/pexels-photo-33296797.jpeg?auto=compress&w=400&fit=crop', link: 'https://instagram.com' },
-  { id: 5, image: 'https://images.pexels.com/photos/34017584/pexels-photo-34017584.jpeg?auto=compress&w=400&fit=crop', link: 'https://instagram.com' },
-];
-
-const travelStories = [
-  {
-    title: 'The Silent Monasteries of Bhutan',
-    category: 'Culture',
-    image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&w=600&fit=crop',
-    excerpt: 'Discover the spiritual heart of the Himalayas through the ancient traditions of Bhutanese monastic life.',
-    date: 'March 15, 2024'
-  },
-  {
-    title: 'Chasing Waterfalls in Meghalaya',
-    category: 'Adventure',
-    image: 'https://images.pexels.com/photos/19469036/pexels-photo-19469036.jpeg?auto=compress&w=600&fit=crop',
-    excerpt: 'A journey through the wettest place on earth, where clouds touch the ground and waterfalls roar.',
-    date: 'February 28, 2024'
-  },
-  {
-    title: 'Sikkim: A Hiker\'s Paradise',
-    category: 'Nature',
-      image: 'https://images.pexels.com/photos/325807/pexels-photo-325807.jpeg?auto=compress&w=600&fit=crop',
-    excerpt: 'Exploring the pristine trails and snow-capped peaks of North Sikkim\'s hidden valleys.',
-    date: 'January 12, 2024'
-  }
+  { id: 1, image: 'https://images.pexels.com/photos/19469036/pexels-photo-19469036.jpeg?auto=compress&w=400&fit=crop', link: 'https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+  { id: 2, image: 'https://images.pexels.com/photos/9982525/pexels-photo-9982525.jpeg?auto=compress&w=400&fit=crop', link: 'https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+  { id: 3, image: 'https://images.pexels.com/photos/35402324/pexels-photo-35402324.jpeg?auto=compress&w=400&fit=crop', link: 'https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+  { id: 4, image: 'https://images.pexels.com/photos/33296797/pexels-photo-33296797.jpeg?auto=compress&w=400&fit=crop', link: 'https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+  { id: 5, image: 'https://images.pexels.com/photos/34017584/pexels-photo-34017584.jpeg?auto=compress&w=400&fit=crop', link: 'https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
 ];
 
 export function Home() {
   const heroRef = useRef(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentClientImage, setCurrentClientImage] = useState(0);
 
   // Auto-advance slides
   useEffect(() => {
@@ -110,6 +99,14 @@ export function Home() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const nextClientImage = () => {
+    setCurrentClientImage((prev) => (prev + 1) % clientTourMemories.length);
+  };
+
+  const prevClientImage = () => {
+    setCurrentClientImage((prev) => (prev - 1 + clientTourMemories.length) % clientTourMemories.length);
   };
 
   const { scrollYProgress } = useScroll({
@@ -148,7 +145,7 @@ export function Home() {
                 alt={heroSlides[currentSlide].title} 
                 className="w-full h-full object-cover"
                 containerClassName="w-full h-full"
-                referrerPolicy="no-referrer"
+                
               />
             </motion.div>
           </AnimatePresence>
@@ -242,63 +239,6 @@ export function Home() {
         </motion.div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="py-16 bg-secondary border-b border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-noise pointer-events-none"></div>
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-wrap justify-center gap-12 md:gap-24">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center space-x-4 group"
-            >
-              <div className="w-12 h-12 glass rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-primary transition-all duration-500">
-                <Shield className="w-6 h-6" />
-              </div>
-              <span className="text-white/80 font-sub text-lg tracking-wide">Safe Travels</span>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center space-x-4 group"
-            >
-              <div className="w-12 h-12 glass rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-primary transition-all duration-500">
-                <Award className="w-6 h-6" />
-              </div>
-              <span className="text-white/80 font-sub text-lg tracking-wide">Premium Quality</span>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center space-x-4 group"
-            >
-              <div className="w-12 h-12 glass rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-primary transition-all duration-500">
-                <Users className="w-6 h-6" />
-              </div>
-              <span className="text-white/80 font-sub text-lg tracking-wide">Expert Guides</span>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center space-x-4 group"
-            >
-              <div className="w-12 h-12 glass rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-primary transition-all duration-500">
-                <CheckCircle className="w-6 h-6" />
-              </div>
-              <span className="text-white/80 font-sub text-lg tracking-wide">100% Tailored</span>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="py-32 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-noise pointer-events-none"></div>
@@ -314,13 +254,19 @@ export function Home() {
               transition={{ duration: 1 }}
             >
               <span className="font-cursive text-4xl text-accent mb-4 block">Our Story</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight uppercase tracking-tight">Discover the Magic of the Himalayas</h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-tight uppercase tracking-tight">Welcome to Newar Tour and Travels</h2>
               <div className="w-20 h-[2px] bg-accent mb-10"></div>
-              <p className="text-gray-300 font-sub text-xl leading-relaxed mb-8 italic">
-                "At NEWAR, we believe in creating journeys that touch your soul. Based in Jaigaon, the gateway to Bhutan, we specialize in crafting premium, personalized travel experiences."
+              <p className="text-gray-300 font-sub text-lg leading-relaxed mb-8">
+                Welcome to Newar Tours and Travel, your trusted partner in exploring the majestic eastern frontier. From the high-altitude serenity of Sikkim to the cloud-kissed hills of Meghalaya, we bring you the very best of India&apos;s Northeast and the mystical Kingdom of Bhutan.
               </p>
+              <div className="text-gray-400 font-sub text-lg leading-relaxed mb-8">
+                <p className="text-white font-semibold mb-3">Our Destinations:</p>
+                <p>Bhutan: Experience the land of Gross National Happiness.</p>
+                <p>Sikkim &amp; Darjeeling: Traverse the legendary Himalayan loops and colonial highlands.</p>
+                <p>Meghalaya: Step into the wettest, greenest, and most magical landscapes on Earth.</p>
+              </div>
               <p className="text-gray-400 font-sub text-lg leading-relaxed mb-12">
-                Whether you seek spiritual awakening at ancient monasteries, thrilling adventures in the Himalayas, or a peaceful retreat in pristine valleys, our expert team ensures every moment of your trip is seamless, luxurious, and extraordinary.
+                At Newar, we handle the logistics so you can handle the memories. With a dedicated team, hand-picked stays, and a passion for hospitality, we ensure every mile you travel with us is a mile of pure joy.
               </p>
               <Link to="/about" className="inline-flex items-center text-accent font-bold hover:text-accent-light transition-colors uppercase tracking-[0.2em] text-xs group">
                 Explore Our Legacy <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -335,11 +281,11 @@ export function Home() {
             >
               <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-2xl border border-white/10 relative group luxury-border">
                 <Image 
-                  src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&w=1000&fit=crop" 
+                  src={logoImage}
                   alt="Himalayan Culture" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                   containerClassName="w-full h-full"
-                  referrerPolicy="no-referrer"
+                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-60"></div>
               </div>
@@ -380,7 +326,7 @@ export function Home() {
                   alt={dest.name} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   containerClassName="w-full h-full"
-                  referrerPolicy="no-referrer"
+                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -400,62 +346,11 @@ export function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-32 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4 block">Our Promise</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6">Why Choose Us</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex flex-col items-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 text-accent backdrop-blur-sm">
-                <Star className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-serif mb-4">Premium Experience</h3>
-              <p className="text-white/70 font-sub leading-relaxed">We curate luxury stays and comfortable travel arrangements to ensure your journey is as beautiful as the destination.</p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col items-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 text-accent backdrop-blur-sm">
-                <MapPin className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-serif mb-4">Local Expertise</h3>
-              <p className="text-white/70 font-sub leading-relaxed">Our deep-rooted knowledge allows us to offer authentic experiences and hidden gems off the beaten path.</p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col items-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-8 text-accent backdrop-blur-sm">
-                <Shield className="w-8 h-8" />
-              </div>
-              <h3 className="text-2xl font-serif mb-4">Hassle-Free Travel</h3>
-              <p className="text-white/70 font-sub leading-relaxed">From visas to permits and itineraries, we handle all the details so you can focus on enjoying your trip.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Packages */}
-      <section className="py-32 bg-secondary relative">
+      <section className="py-32 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-noise pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/5 blur-[120px] rounded-full translate-x-1/2 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent/5 blur-[100px] rounded-full -translate-x-1/2 pointer-events-none"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20">
             <div className="max-w-2xl">
@@ -483,7 +378,7 @@ export function Home() {
                     alt={pkg.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                     containerClassName="w-full h-full"
-                    referrerPolicy="no-referrer"
+                    
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
                   <div className="absolute top-6 left-6 glass px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white rounded-full">
@@ -512,121 +407,84 @@ export function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 bg-primary border-t border-white/5 relative">
+      <section className="py-32 bg-secondary relative overflow-hidden">
         <div className="absolute inset-0 bg-noise pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-accent/[0.03] blur-[150px] rounded-full pointer-events-none"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4 block">Guest Experiences</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">What Our Clients Say</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6">Glimpse of Our Previous Clients</h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="glass-card glass-card-hover p-10 rounded-2xl relative"
-              >
-                <div className="text-accent mb-6 flex">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 font-sub italic leading-relaxed mb-8">"{testimonial.text}"</p>
-                <div>
-                  <h4 className="font-serif text-white text-lg">{testimonial.name}</h4>
-                  <p className="text-xs uppercase tracking-wider text-gray-500 mt-1">{testimonial.location}</p>
-                </div>
-                <div className="absolute top-10 right-10 text-white/5">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.017 21L16.411 14.182C16.411 14.182 15.011 14.182 15.011 11.455C15.011 8.727 17.511 7.364 19.511 7.364C21.511 7.364 23.011 8.727 23.011 11.455C23.011 14.182 20.511 21 20.511 21H14.017ZM3.017 21L5.411 14.182C5.411 14.182 4.011 14.182 4.011 11.455C4.011 8.727 6.511 7.364 8.511 7.364C10.511 7.364 12.011 8.727 12.011 11.455C12.011 14.182 9.511 21 9.511 21H3.017Z" />
-                  </svg>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Travel Stories Section */}
-      <section className="py-32 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-noise pointer-events-none"></div>
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20">
-            <div className="max-w-2xl">
-              <motion.span 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="text-accent uppercase tracking-[0.3em] text-[0.65rem] font-black mb-4 block"
+          <div className="max-w-5xl mx-auto">
+            <div className="relative glass-card rounded-2xl overflow-hidden border border-white/10">
+              <div className="aspect-[4/5] sm:aspect-[3/2] lg:aspect-[16/9] relative">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={clientTourMemories[currentClientImage].id}
+                    initial={{ opacity: 0, x: 60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -60 }}
+                    transition={{ duration: 0.45, ease: 'easeOut' }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.15}
+                    onDragEnd={(_, info) => {
+                      if (info.offset.x < -80) nextClientImage();
+                      if (info.offset.x > 80) prevClientImage();
+                    }}
+                    className="absolute inset-0 cursor-grab active:cursor-grabbing"
+                  >
+                    <Image
+                      src={clientTourMemories[currentClientImage].image}
+                      alt={`Client tour memory ${currentClientImage + 1}`}
+                      className="w-full h-full object-cover"
+                      containerClassName="w-full h-full"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              <button
+                type="button"
+                onClick={prevClientImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass text-white hover:text-accent transition-colors flex items-center justify-center"
+                aria-label="Previous client image"
               >
-                Editorial
-              </motion.span>
-              <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-5xl md:text-7xl font-serif text-white leading-none tracking-tighter uppercase"
+                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+              </button>
+
+              <button
+                type="button"
+                onClick={nextClientImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full glass text-white hover:text-accent transition-colors flex items-center justify-center"
+                aria-label="Next client image"
               >
-                Travel <span className="text-accent italic font-cursive normal-case tracking-normal">Stories</span>
-              </motion.h2>
+                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+              </button>
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="mt-8 md:mt-0"
-            >
-              <Link to="/about" className="text-white/60 hover:text-accent transition-colors uppercase tracking-[0.2em] text-[0.65rem] font-black flex items-center group">
-                View All Stories <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-2 transition-transform" />
-              </Link>
-            </motion.div>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {travelStories.map((story, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-sm mb-8 luxury-border">
-                  <Image 
-                    src={story.image} 
-                    alt={story.title} 
-                    className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
-                    containerClassName="w-full h-full"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
-                  <div className="absolute top-6 left-6 glass px-4 py-2 text-[0.6rem] font-black uppercase tracking-[0.25em] text-accent rounded-sm border border-accent/20">
-                    {story.category}
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <span className="text-gray-500 text-[0.6rem] font-black uppercase tracking-[0.2em]">{story.date}</span>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors duration-300 uppercase tracking-tight leading-tight">{story.title}</h3>
-                  <p className="text-gray-400 font-sub text-sm leading-relaxed line-clamp-2">{story.excerpt}</p>
-                  <div className="pt-4 flex items-center text-accent text-[0.6rem] font-black uppercase tracking-[0.2em] group-hover:translate-x-2 transition-transform duration-300">
-                    Read Story <ArrowRight className="ml-2 w-3 h-3" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            <div className="mt-8 flex items-center justify-center gap-3">
+              {clientTourMemories.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setCurrentClientImage(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${currentClientImage === index ? 'w-8 bg-accent' : 'w-2 bg-white/30 hover:bg-white/50'}`}
+                  aria-label={`Go to client image ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <p className="text-center text-xs md:text-sm text-gray-400 mt-4 uppercase tracking-[0.12em]">
+              Swipe or use arrows to explore
+            </p>
           </div>
         </div>
       </section>
 
       {/* Instagram Feed */}
-      <section className="py-24 bg-secondary text-white overflow-hidden relative">
+      <section className="py-24 bg-primary text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-noise pointer-events-none"></div>
         <div className="container mx-auto px-4 md:px-8 mb-12 flex flex-col md:flex-row justify-between items-end relative z-10">
           <div>
@@ -635,7 +493,7 @@ export function Home() {
             </span>
             <h2 className="text-4xl md:text-5xl font-serif">@newartourandtravels</h2>
           </div>
-          <a href="https://www.instagram.com/newartourandtravels" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center text-white hover:text-accent transition-colors uppercase tracking-[0.15em] text-sm font-medium group mt-6 md:mt-0">
+          <a href="https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center text-white hover:text-accent transition-colors uppercase tracking-[0.15em] text-sm font-medium group mt-6 md:mt-0">
             View Instagram <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-2 transition-transform" />
           </a>
         </div>
@@ -661,7 +519,7 @@ export function Home() {
                     alt="Instagram post" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     containerClassName="w-full h-full"
-                    referrerPolicy="no-referrer"
+                    
                   />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Instagram className="w-8 h-8 text-white" />
@@ -672,7 +530,7 @@ export function Home() {
         </div>
         
         <div className="container mx-auto px-4 mt-12 text-center md:hidden">
-          <a href="https://www.instagram.com/newartourandtravels" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white hover:text-accent transition-colors uppercase tracking-[0.15em] text-sm font-medium">
+          <a href="https://www.instagram.com/newartourandtravels?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-white hover:text-accent transition-colors uppercase tracking-[0.15em] text-sm font-medium">
             View Instagram <ArrowRight className="ml-2 w-4 h-4" />
           </a>
         </div>

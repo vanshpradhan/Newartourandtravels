@@ -65,7 +65,7 @@ export function Contact() {
               alt="Bhutan Landscape" 
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
-              referrerPolicy="no-referrer"
+              
             />
           </motion.div>
           {/* Cinematic luxury gradient overlay */}
@@ -159,7 +159,7 @@ export function Contact() {
                   </div>
                   <div className="ml-8">
                     <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/60 mb-2">Our Office</h4>
-                    <p className="text-white font-sub text-lg leading-relaxed">KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal, India</p>
+                    <p className="text-white font-sub text-lg leading-relaxed">KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal</p>
                   </div>
                 </div>
 
@@ -170,8 +170,8 @@ export function Contact() {
                   <div className="ml-8">
                     <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/60 mb-2">Phone</h4>
                     <div className="flex flex-col space-y-2">
-                      <a href="tel:+917547993621" className="text-white font-sub text-lg hover:text-accent transition-colors">+91 7547993621</a>
-                      <a href="tel:+918927087805" className="text-white font-sub text-lg hover:text-accent transition-colors">+91 8927087805</a>
+                      <a href="tel:7547993621" className="text-white font-sub text-lg hover:text-accent transition-colors">7547993621</a>
+                      <a href="tel:8927087805" className="text-white font-sub text-lg hover:text-accent transition-colors">8927087805</a>
                     </div>
                   </div>
                 </div>
@@ -182,7 +182,7 @@ export function Contact() {
                   </div>
                   <div className="ml-8">
                     <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/60 mb-2">Email</h4>
-                    <a href="mailto:info@newartravels.com" className="text-white font-sub text-lg hover:text-accent transition-colors">info@newartravels.com</a>
+                    <a href="mailto:Newartourandtravel12@gmail.com" className="text-white font-sub text-lg hover:text-accent transition-colors">Newartourandtravel12@gmail.com</a>
                   </div>
                 </div>
 
