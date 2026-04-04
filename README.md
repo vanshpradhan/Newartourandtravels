@@ -1,16 +1,54 @@
-# Run and deploy your AI Studio app
+# Newar Tour and Travels Website
 
-This contains everything you need to run your app locally.
+Official website project for Newar Tour and Travels. This app presents travel destinations, tour packages, and contact details in a clean multi-page experience.
 
-View your app in AI Studio: https://ai.studio/apps/ff444626-9b6e-4b21-bb7f-ea14a6e4bb90
+## What This Project Includes
 
-## Run Locally
+- Home page with key brand sections
+- Destinations showcase
+- Packages listing
+- About page
+- Contact page
 
-**Prerequisites:**  Node.js
+## Built With
 
+- React
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS
 
-1. Install dependencies:
+## Local Setup
+
+1. Clone the repository:
+   `git clone https://github.com/vanshpradhan/Newartourandtravels.git`
+2. Move into the project:
+   `cd Newartourandtravels`
+3. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+4. Start development server:
    `npm run dev`
+
+App runs at `http://localhost:3000`.
+
+## Scripts
+
+- `npm run dev` - Run development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - TypeScript type check
+
+## Folder Guide
+
+- `src/pages` - Main route pages
+- `src/components/layout` - Navbar, footer, and page layout
+- `src/components/ui` - Reusable UI elements
+- `src/lib` - Shared utility functions
+
+## Deployment
+
+You can deploy the built app on platforms like Vercel, Netlify, or any static hosting provider.
+
+Build command:
+
+`npm run build`
