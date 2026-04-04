@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Instagram, ChevronLeft, ChevronRight, Search, Briefcase, Activity, DollarSign } from 'lucide-react';
+import { ArrowRight, Instagram, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef, useState, useEffect } from 'react';
 import { Image } from '@/components/ui/Image';
 import logoImage from '../../Images/logo.jpeg';

@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, Send, ChevronLeft, ChevronRight, Shield, Award, Users, Globe } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Send, Shield, Award, Users, Globe } from 'lucide-react';
+import { useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
 
@@ -16,7 +16,7 @@ export function Contact() {
   const [budget, setBudget] = useState('standard');
   const [message, setMessage] = useState('');
 
-  function handleWhatsAppSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleWhatsAppSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const text =
       `New Contact Form Submission\n` +
@@ -26,7 +26,7 @@ export function Contact() {
       `Phone: ${phone}\n` +
       `Destination: ${destination.charAt(0).toUpperCase() + destination.slice(1)}\n` +
       `Travelers: ${travelers.charAt(0).toUpperCase() + travelers.slice(1).replace(/([A-Z])/g, ' $1')}\n` +
-      `Duration: ${duration === 'short' ? '3-5 Days' : duration === 'medium' ? '6-10 Days' : '11+ Days'}\n` +
+      `Duration: ${duration === 'mini' ? '1-2 Days' : duration === 'short' ? '3-5 Days' : duration === 'medium' ? '6-10 Days' : '11+ Days'}\n` +
       `Budget: ${budget === 'standard' ? 'Standard Luxury' : budget === 'premium' ? 'Premium Elite' : 'Ultra Bespoke'}\n` +
       `Additional Requests: ${message}`;
 
@@ -159,7 +159,14 @@ export function Contact() {
                   </div>
                   <div className="ml-8">
                     <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white/60 mb-2">Our Office</h4>
-                    <p className="text-white font-sub text-lg leading-relaxed">KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal</p>
+                    <a
+                      href="https://share.google/BcUCCdiO5HUr2XBNF"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white font-sub text-lg leading-relaxed hover:text-accent transition-colors"
+                    >
+                      KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal
+                    </a>
                   </div>
                 </div>
 
@@ -210,7 +217,7 @@ export function Contact() {
               
               <div className="flex justify-between items-center mb-10">
                 <div>
-                  <span className="font-cursive text-3xl text-accent mb-2 block">Trip Designer</span>
+                  <span className="font-cursive text-3xl text-accent mb-2 block">Customize Package</span>
                   <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-tight">Tailor Your Journey</h3>
                 </div>
               </div>
@@ -223,7 +230,6 @@ export function Contact() {
                       type="text"
                       id="firstName"
                       className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 text-white focus:outline-none focus:border-accent transition-colors font-sub"
-                      placeholder="John"
                       value={firstName}
                       onChange={e => setFirstName(e.target.value)}
                     />
@@ -234,7 +240,6 @@ export function Contact() {
                       type="text"
                       id="lastName"
                       className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 text-white focus:outline-none focus:border-accent transition-colors font-sub"
-                      placeholder="Doe"
                       value={lastName}
                       onChange={e => setLastName(e.target.value)}
                     />
@@ -246,7 +251,6 @@ export function Contact() {
                     type="email"
                     id="email"
                     className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 text-white focus:outline-none focus:border-accent transition-colors font-sub"
-                    placeholder="john@example.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                   />
@@ -257,7 +261,6 @@ export function Contact() {
                     type="tel"
                     id="phone"
                     className="w-full bg-white/5 border border-white/10 rounded-sm px-6 py-4 text-white focus:outline-none focus:border-accent transition-colors font-sub"
-                    placeholder="+1 (555) 000-0000"
                     value={phone}
                     onChange={e => setPhone(e.target.value)}
                   />
@@ -302,6 +305,7 @@ export function Contact() {
                       value={duration}
                       onChange={e => setDuration(e.target.value)}
                     >
+                      <option value="mini" className="bg-primary">1-2 Days</option>
                       <option value="short" className="bg-primary">3-5 Days</option>
                       <option value="medium" className="bg-primary">6-10 Days</option>
                       <option value="long" className="bg-primary">11+ Days</option>
@@ -385,7 +389,7 @@ export function Contact() {
       {/* Map Section */}
       <section className="h-[500px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3543.123456789!2d89.38123456789!3d26.84123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e3cb123456789%3A0x123456789abcdef!2sJaigaon%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+          src="https://www.google.com/maps?q=K.B.+PRADHAN+PLAZA,+NS+Road,+Jaigaon,+West+Bengal&output=embed"
           className="w-full h-full border-0" 
           allowFullScreen={true} 
           loading="lazy" 

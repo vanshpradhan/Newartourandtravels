@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { MapPin, Calendar, Info, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MapPin, Calendar, Info } from 'lucide-react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';

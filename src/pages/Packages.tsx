@@ -1,8 +1,23 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'motion/react';
-import { Clock, MapPin, Check, ArrowRight, ChevronLeft, ChevronRight, X, Search, Star } from 'lucide-react';
+import { Clock, MapPin, Check, X, Search, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
+import a1Image from '../../Images/a1.png';
+import a2Image from '../../Images/a2.png';
+import a3Image from '../../Images/a3.png';
+import a4Image from '../../Images/a4.png';
+import a5Image from '../../Images/a5.png';
+import a6Image from '../../Images/a6.png';
+import a7Image from '../../Images/a7.png';
+import a8Image from '../../Images/a8.png';
+import a9Image from '../../Images/a9.png';
+import b1Image from '../../Images/b1.png';
+import b2Image from '../../Images/b2.png';
+import c1Image from '../../Images/c1.png';
+import c2Image from '../../Images/c2.png';
+import d1Image from '../../Images/d1.png';
+import d2Image from '../../Images/d2.png';
 
 const packages = [
   // Bhutan
@@ -11,7 +26,7 @@ const packages = [
     title: 'Bhutan Express Getaway',
     duration: '2N/3D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?auto=compress&w=400&fit=crop', // Tiger's Nest Monastery, Bhutan
+    image: a1Image,
     description: 'A quick yet immersive introduction to the Land of the Thunder Dragon, covering the highlights of Paro and Thimphu.',
     highlights: ['Paro Taktsang hike', 'Thimphu local sightseeing', 'Traditional Bhutanese dinner'],
     itinerary: [
@@ -27,7 +42,7 @@ const packages = [
     title: 'Himalayan Bliss Short Tour',
     duration: '3N/4D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/417142/pexels-photo-417142.jpeg?auto=compress&w=400&fit=crop', // Dochula Pass, Bhutan
+    image: a2Image,
     description: 'Experience the perfect blend of culture and nature in this short tour covering Paro, Thimphu, and the beautiful Dochula Pass.',
     highlights: ['Dochula Pass views', 'Buddha Dordenma', 'Punakha Dzong visit']
   },
@@ -36,7 +51,7 @@ const packages = [
     title: 'Mystical Bhutan Retreat',
     duration: '4N/5D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&w=400&fit=crop', // Bhutanese Monastery
+    image: a3Image,
     description: 'Delve deeper into Bhutan\'s mystical charm with visits to ancient monasteries, lush valleys, and vibrant local markets.',
     highlights: ['Tiger Nest Monastery', 'Punakha Suspension Bridge', 'Chimi Lhakhang']
   },
@@ -45,7 +60,7 @@ const packages = [
     title: 'Bhutan Cultural Explorer',
     duration: '5N/6D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/20724436/pexels-photo-20724436.jpeg?auto=compress&w=300&fit=crop&format=webp', // Bhutan Valley
+    image: a4Image,
     description: 'An extensive journey exploring the rich cultural heritage, traditional arts, and majestic architecture of western Bhutan.',
     highlights: ['Textile Museum', 'Traditional paper factory', 'Folk Heritage Museum']
   },
@@ -54,7 +69,7 @@ const packages = [
     title: 'Enchanting Bhutan Escape',
     duration: '6N/7D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/10477351/pexels-photo-10477351.jpeg?auto=compress&w=300&fit=crop&format=webp', // Phobjikha Valley, Bhutan
+    image: a5Image,
     description: 'A comprehensive tour that takes you through the scenic valleys of Paro, Thimphu, Punakha, and the beautiful Phobjikha valley.',
     highlights: ['Phobjikha Valley', 'Black-necked crane center', 'Gangtey Monastery']
   },
@@ -63,7 +78,7 @@ const packages = [
     title: 'Bhutan Adventure & Nature Trail',
     duration: '6N/7D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/6876381/pexels-photo-6876381.jpeg?auto=compress&w=300&fit=crop&format=webp', // Bhutan Nature Trail
+    image: a6Image,
     description: 'For the active traveler, this package includes day hikes, nature walks, and exploration of Bhutan\'s pristine environment.',
     highlights: ['Chele La Pass hike', 'Nature trails', 'Camping options']
   },
@@ -72,7 +87,7 @@ const packages = [
     title: 'Ultimate Bhutan Experience',
     duration: '7N/8D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/20724436/pexels-photo-20724436.jpeg?auto=compress&w=300&fit=crop&format=webp', // Bumthang Valley, Bhutan
+    image: a7Image,
     description: 'The definitive Bhutan journey covering all major western and central valleys, offering a complete cultural and natural immersion.',
     highlights: ['Bumthang Valley', 'Trongsa Dzong', 'Comprehensive cultural tour']
   },
@@ -81,7 +96,7 @@ const packages = [
     title: 'Romantic Bhutan Honeymoon Tour',
     duration: '4N/5D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/34017584/pexels-photo-34017584.jpeg?auto=compress&w=300&fit=crop', // Romantic Bhutan
+    image: a8Image,
     description: 'A specially curated romantic getaway featuring luxury stays, private dinners, and peaceful moments in serene landscapes.',
     highlights: ['Luxury accommodations', 'Private blessings', 'Couples spa treatment']
   },
@@ -90,7 +105,7 @@ const packages = [
     title: 'Bhutan Family Delight Tour',
     duration: '5N/6D',
     category: 'Bhutan',
-    image: 'https://images.pexels.com/photos/33296797/pexels-photo-33296797.jpeg?auto=compress&w=300&fit=crop', // Family Bhutan
+    image: a9Image,
     description: 'A family-friendly itinerary balancing cultural sights with engaging activities suitable for all age groups.',
     highlights: ['Archery lessons', 'Farmhouse visit', 'Easy nature walks']
   },
@@ -100,7 +115,7 @@ const packages = [
     title: 'Sikkim Himalayan Escape',
     duration: '4N/5D',
     category: 'Sikkim',
-    image: 'https://images.pexels.com/photos/17332516/pexels-photo-17332516.jpeg?auto=compress&w=300&fit=crop', // Sikkim Himalayas
+    image: b1Image,
     description: 'Experience the pristine beauty of Sikkim with snow-capped mountains, peaceful monasteries, and the charm of Gangtok and surrounding valleys.',
     highlights: ['Gangtok local sightseeing', 'Rumtek Monastery', 'Himalayan views']
   },
@@ -109,7 +124,7 @@ const packages = [
     title: 'Enchanting Sikkim Journey',
     duration: '5N/6D',
     category: 'Sikkim',
-    image: 'https://images.pexels.com/photos/10477351/pexels-photo-10477351.jpeg?auto=compress&w=300&fit=crop', // Tsomgo Lake, Sikkim
+    image: b2Image,
     description: 'Explore the magical landscapes of Sikkim, from serene lakes like Tsomgo to vibrant culture, offering a perfect mix of nature and tradition.',
     highlights: ['Tsomgo Lake visit', 'Local cultural experience', 'Baba Mandir']
   },
@@ -118,7 +133,7 @@ const packages = [
     title: 'Darjeeling Tea Valley Retreat',
     duration: '3N/4D',
     category: 'Darjeeling',
-    image: 'https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?q=80&w=800&auto=format&fit=crop',
+    image: c1Image,
     description: 'Relax amidst lush tea gardens, enjoy breathtaking sunrise views from Tiger Hill, and soak in the colonial charm of Darjeeling.',
     highlights: ['Tiger Hill sunrise', 'Batasia Loop', 'Happy Valley Tea Estate']
   },
@@ -127,7 +142,7 @@ const packages = [
     title: 'Darjeeling Scenic Bliss Tour',
     duration: '4N/5D',
     category: 'Darjeeling',
-    image: 'https://images.pexels.com/photos/325807/pexels-photo-325807.jpeg?auto=compress&w=300&fit=crop', // Darjeeling tea gardens and hills
+    image: c2Image,
     description: 'Discover misty hills, toy train rides, and panoramic Himalayan views in this peaceful getaway to the Queen of the Hills.',
     highlights: ['Mirik Lake', 'Himalayan Mountaineering Institute', 'Toy Train ride']
   },
@@ -136,7 +151,7 @@ const packages = [
     title: 'Meghalaya Waterfall Wonders',
     duration: '4N/5D',
     category: 'Meghalaya',
-    image: 'https://images.pexels.com/photos/19469036/pexels-photo-19469036.jpeg?auto=compress&w=600&fit=crop', // Meghalaya Waterfall
+    image: d1Image,
     description: 'Explore the land of clouds with stunning waterfalls, living root bridges, and lush green landscapes that feel straight out of a dream.',
     highlights: ['Double Decker Root Bridge', 'Dawki River', 'Nohkalikai Falls']
   },
@@ -145,7 +160,7 @@ const packages = [
     title: 'Meghalaya Nature & Culture Trail',
     duration: '5N/6D',
     category: 'Meghalaya',
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800&auto=format&fit=crop',
+    image: d2Image,
     description: 'A perfect blend of adventure and culture with visits to Cherrapunji, Dawki river, and traditional Khasi villages.',
     highlights: ['Mawlynnong Village', 'Cherrapunji', 'Shillong Peak']
   }
@@ -208,7 +223,7 @@ export function Packages() {
             className="w-full h-full origin-center"
           >
             <Image 
-              src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&w=1920&fit=crop" 
+              src={a6Image}
               alt="Himalayan Landscape" 
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"

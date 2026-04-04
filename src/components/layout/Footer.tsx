@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function Footer() {
@@ -92,9 +92,14 @@ export function Footer() {
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-accent/10 transition-colors">
                   <MapPin className="w-4 h-4 text-accent" />
                 </div>
-                <span className="text-white/50 text-sm leading-relaxed font-sub group-hover:text-white transition-colors">
+                <a
+                  href="https://share.google/BcUCCdiO5HUr2XBNF"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 text-sm leading-relaxed font-sub group-hover:text-white hover:text-white transition-colors"
+                >
                   KB Pradhan Plaza, NS Road,<br />Jaigaon, West Bengal
-                </span>
+                </a>
               </li>
               <li className="flex items-center group">
                 <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-accent/10 transition-colors">

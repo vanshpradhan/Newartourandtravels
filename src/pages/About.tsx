@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { Shield, Award, Users, CheckCircle, MapPin, Phone, Mail, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { Image } from '@/components/ui/Image';
+import a1Image from '../../Images/a1.png';
+import a2Image from '../../Images/a2.png';
+import andyImage from '../../Images/andy.png';
 
 export function About() {
   const heroRef = useRef(null);
@@ -113,17 +115,24 @@ export function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="font-cursive text-4xl text-accent mb-4 block">Welcome to</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-tight">Your Himalayan Adventure</h2>
+              <span className="font-cursive text-4xl text-accent mb-4 block">Our Story</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-tight">Welcome to Newar Tour and Travels</h2>
               <div className="w-20 h-[2px] bg-accent mb-8"></div>
               <p className="text-gray-400 font-sub leading-relaxed mb-6 text-lg">
-                Founded with a deep love for the majestic Himalayas, NEWAR is a premier travel agency based in Jaigaon, West Bengal—the vibrant gateway to Bhutan. We specialize in curating bespoke, high-end travel experiences across Bhutan, Sikkim, Darjeeling, and Meghalaya.
+                Welcome to Newar Tours and Travel, your trusted partner in exploring the majestic eastern frontier. From the high-altitude serenity of Sikkim to the cloud-kissed hills of Meghalaya, we bring you the very best of India's Northeast and the mystical Kingdom of Bhutan.
               </p>
-              <p className="text-gray-400 font-sub leading-relaxed mb-6 text-lg">
-                Our mission is to transform your travel dreams into reality. We believe that a journey is not just about the places you visit, but the memories you create, the cultures you experience, and the peace you find along the way.
+              <h3 className="text-white font-bold mb-4 text-2xl">Our Destinations:</h3>
+              <p className="text-gray-400 font-sub leading-relaxed mb-3 text-lg">
+                Bhutan: Experience the land of Gross National Happiness.
               </p>
               <p className="text-gray-400 font-sub leading-relaxed text-lg">
-                Led by Andy (Roshan Pradhan), our team of local experts brings years of experience and intimate knowledge of the region. We pride ourselves on our meticulous attention to detail, ensuring that every aspect of your trip—from luxury accommodations to seamless transportation and expert guiding—is flawless.
+                Sikkim & Darjeeling: Traverse the legendary Himalayan loops and colonial highlands.
+              </p>
+              <p className="text-gray-400 font-sub leading-relaxed mb-6 text-lg">
+                Meghalaya: Step into the wettest, greenest, and most magical landscapes on Earth.
+              </p>
+              <p className="text-gray-400 font-sub leading-relaxed text-lg">
+                At Newar, we handle the logistics so you can handle the memories. With a dedicated team, hand-picked stays, and a passion for hospitality, we ensure every mile you travel with us is a mile of pure joy.
               </p>
             </motion.div>
             <motion.div 
@@ -137,7 +146,7 @@ export function About() {
                 <div className="space-y-6">
                   <div className="luxury-border rounded-sm overflow-hidden group">
                     <Image 
-                      src="https://images.pexels.com/photos/325807/pexels-photo-325807.jpeg?auto=compress&w=600&fit=crop&format=webp" 
+                      src={a1Image}
                       alt="Darjeeling Tea Gardens" 
                       className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                       containerClassName="w-full h-80"
@@ -151,7 +160,7 @@ export function About() {
                 <div className="pt-12">
                   <div className="luxury-border rounded-sm overflow-hidden group">
                     <Image 
-                      src="https://images.pexels.com/photos/35402324/pexels-photo-35402324.jpeg?auto=compress&w=600&fit=crop&format=webp" 
+                      src={a2Image}
                       alt="Tiger's Nest Monastery Bhutan" 
                       className="w-full h-[400px] object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                       containerClassName="w-full h-[400px]"
@@ -167,46 +176,8 @@ export function About() {
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-32 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-noise pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-1/2 h-full bg-accent/5 blur-[150px] rounded-full translate-x-1/2 pointer-events-none"></div>
-        
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="font-cursive text-4xl text-accent mb-4 block">Our Philosophy</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">Why Travel With Us</h2>
-            <div className="w-24 h-[2px] bg-accent mx-auto"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Shield, title: 'Trust & Safety', desc: 'Your safety and comfort are our top priorities. We partner with trusted accommodations and experienced drivers.' },
-              { icon: Award, title: 'Premium Quality', desc: 'We offer handpicked luxury stays and exclusive experiences that define high-end travel.' },
-              { icon: Users, title: 'Local Expertise', desc: 'Our guides are passionate locals who share deep insights into the culture, history, and hidden gems.' },
-              { icon: CheckCircle, title: 'Tailored Itineraries', desc: 'Every journey is customized to your preferences, ensuring a truly personal and unique experience.' }
-            ].map((value, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card glass-card-hover p-10 rounded-sm text-center transition-all duration-300 group"
-              >
-                <div className="w-20 h-20 mx-auto glass rounded-full flex items-center justify-center mb-8 text-accent group-hover:bg-accent group-hover:text-primary transition-all duration-500 gold-glow">
-                  <value.icon className="w-10 h-10" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4 uppercase tracking-wide">{value.title}</h3>
-                <p className="text-gray-400 text-base leading-relaxed">{value.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Leadership Section */}
-      <section className="py-32 bg-secondary relative overflow-hidden">
+      <section className="py-32 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-noise pointer-events-none"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -219,7 +190,7 @@ export function About() {
             >
               <div className="luxury-border rounded-sm overflow-hidden group aspect-[4/5] max-w-md mx-auto">
                 <Image 
-                  src="https://images.pexels.com/photos/7497599/pexels-photo-7497599.jpeg?auto=compress&w=800&fit=crop" 
+                  src={andyImage}
                   alt="Bhutanese Person Culture" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                   containerClassName="w-full h-full"
@@ -248,44 +219,9 @@ export function About() {
                 "Travel is not just about seeing new places; it's about seeing the world with new eyes. At NEWAR, we don't just sell tours; we craft life-changing experiences that stay with you forever."
               </p>
               <p className="text-gray-400 font-sub leading-relaxed mb-8 text-lg">
-                Andy's vision for NEWAR was born out of a desire to showcase the true, unfiltered beauty of the Himalayas. With over a decade of experience in the travel industry, he has personally scouted every location, vetted every hotel, and trained every guide to ensure they meet the NEWAR standard of excellence.
+                Hi, I’m Andy — your travel partner and host. I specialize in creating seamless and memorable journeys. If you have any questions or need assistance, feel free to reach out anytime.
               </p>
-              <div className="grid grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">10+ Years</h4>
-                  <p className="text-gray-500 text-xs font-sub uppercase tracking-wider">Industry Experience</p>
-                </div>
-                <div>
-                  <h4 className="text-white font-bold uppercase tracking-widest text-sm mb-2">500+ Trips</h4>
-                  <p className="text-gray-500 text-xs font-sub uppercase tracking-wider">Successfully Curated</p>
-                </div>
-              </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section className="py-24 bg-primary relative border-t border-white/5">
-        <div className="absolute inset-0 bg-noise pointer-events-none"></div>
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 hover:opacity-80 transition-opacity duration-700">
-            <div className="flex flex-col items-center group">
-              <Award className="w-12 h-12 text-white mb-4 group-hover:text-accent transition-colors" />
-              <span className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-white">IATA Accredited</span>
-            </div>
-            <div className="flex flex-col items-center group">
-              <Shield className="w-12 h-12 text-white mb-4 group-hover:text-accent transition-colors" />
-              <span className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-white">TCB Licensed</span>
-            </div>
-            <div className="flex flex-col items-center group">
-              <Globe className="w-12 h-12 text-white mb-4 group-hover:text-accent transition-colors" />
-              <span className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-white">ASTA Member</span>
-            </div>
-            <div className="flex flex-col items-center group">
-              <Users className="w-12 h-12 text-white mb-4 group-hover:text-accent transition-colors" />
-              <span className="text-[0.6rem] font-black uppercase tracking-[0.3em] text-white">PATA Member</span>
-            </div>
           </div>
         </div>
       </section>
