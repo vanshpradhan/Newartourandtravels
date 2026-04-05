@@ -166,9 +166,9 @@ export function Home() {
     <div className="w-full">
       <Seo
         title="Newartourandtravels | Jaigaon & Bhutan Tour and Travels"
-        description="Newartourandtravels is a trusted Jaigaon tour and travels agency for Bhutan, Sikkim, Darjeeling, and Meghalaya packages with custom planning and local support."
+        description="Newartourandtravels is a trusted Jaigaon and Phuentsholing tour and travels agency for Bhutan, Sikkim, Darjeeling, and Meghalaya packages with local support."
         path="/"
-        keywords="newartourandtravels, jaigaon tour and travels, bhutan tour and travels, bhutan package from jaigaon, northeast tour packages"
+        keywords="newartourandtravels, jaigaon tour and travels, bhutan tour and travels, phuentsholing tour and travels, jaigaon, phuentsholing, bhutan package from jaigaon"
         schema={schema}
       />
       {/* Hero Section */}

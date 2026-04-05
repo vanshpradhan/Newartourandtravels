@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const FALLBACK_SITE_URL = 'https://newartourandtravels.vercel.app';
+const FALLBACK_SITE_URL = 'https://www.newartourandtravels.in';
 
 function trimTrailingSlash(url: string) {
   return url.endsWith('/') ? url.slice(0, -1) : url;

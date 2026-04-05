@@ -55,16 +55,16 @@ export function Contact() {
     '@type': 'ContactPage',
     name: 'Contact Newartourandtravels',
     url: `${seoSiteUrl}/contact`,
-    description: 'Contact Newartourandtravels in Jaigaon for Bhutan tour bookings and custom travel planning.'
+    description: 'Contact Newartourandtravels in Jaigaon and near Phuentsholing for Bhutan tour bookings and custom travel planning.'
   };
 
   return (
     <div className="w-full">
       <Seo
         title="Contact Newartourandtravels | Jaigaon Bhutan Tour Office"
-        description="Contact Newartourandtravels in Jaigaon for Bhutan permits, transport, hotels, and personalized holiday planning."
+        description="Contact Newartourandtravels in Jaigaon and near Phuentsholing for Bhutan permits, transport, hotels, and personalized holiday planning."
         path="/contact"
-        keywords="contact newartourandtravels, jaigaon tour and travels contact, bhutan tour booking jaigaon"
+        keywords="contact newartourandtravels, jaigaon tour and travels contact, phuentsholing tour and travels, bhutan tour booking jaigaon"
         schema={schema}
       />
       {/* Hero Section */}

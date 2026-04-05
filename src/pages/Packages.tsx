@@ -228,10 +228,10 @@ export function Packages() {
   return (
     <div className="w-full">
       <Seo
-        title="Bhutan Tour Packages from Jaigaon | Newartourandtravels"
-        description="Browse customizable Bhutan and Northeast tour packages from Jaigaon with flexible durations, premium stays, and local expertise."
+        title="Bhutan Tour Packages from Jaigaon & Phuentsholing | Newartourandtravels"
+        description="Browse customizable Bhutan and Northeast tour packages from Jaigaon and Phuentsholing with flexible durations, premium stays, and local expertise."
         path="/packages"
-        keywords="bhutan tour packages from jaigaon, jaigaon bhutan package, newartourandtravels packages"
+        keywords="bhutan tour packages from jaigaon, phuentsholing tour and travels, jaigaon bhutan package, newartourandtravels packages"
         schema={schema}
       />
       {/* Hero Section */}

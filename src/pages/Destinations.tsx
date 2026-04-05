@@ -147,16 +147,16 @@ export function Destinations() {
     '@type': 'CollectionPage',
     name: 'Bhutan and Northeast Destinations',
     url: `${seoSiteUrl}/destinations`,
-    description: 'Explore top travel destinations in Bhutan, Sikkim, Darjeeling, and Meghalaya from a trusted Jaigaon tour operator.'
+    description: 'Explore top travel destinations in Bhutan, Sikkim, Darjeeling, and Meghalaya from a trusted Jaigaon and Phuentsholing tour operator.'
   };
 
   return (
     <div className="w-full">
       <Seo
         title="Bhutan Destinations | Newartourandtravels Jaigaon"
-        description="Discover handpicked Bhutan, Sikkim, Darjeeling, and Meghalaya destinations with expert Jaigaon travel support."
+        description="Discover handpicked Bhutan, Sikkim, Darjeeling, and Meghalaya destinations with expert Jaigaon and Phuentsholing travel support."
         path="/destinations"
-        keywords="bhutan destinations, jaigaon bhutan tour places, sikkim darjeeling meghalaya sightseeing"
+        keywords="bhutan destinations, jaigaon bhutan tour places, phuentsholing tour and travels, sikkim darjeeling meghalaya sightseeing"
         schema={schema}
       />
       {/* Hero Section */}

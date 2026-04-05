@@ -28,16 +28,16 @@ export function About() {
     '@type': 'AboutPage',
     name: 'About Newartourandtravels',
     url: `${seoSiteUrl}/about`,
-    description: 'Learn about Newartourandtravels, a Jaigaon-based team specializing in Bhutan tour and travel experiences.'
+    description: 'Learn about Newartourandtravels, a Jaigaon and Phuentsholing-focused team specializing in Bhutan tour and travel experiences.'
   };
 
   return (
     <div className="w-full">
       <Seo
         title="About Newartourandtravels | Jaigaon Tour and Travels"
-        description="Know the team behind Newartourandtravels in Jaigaon and how we design reliable Bhutan and Himalayan travel experiences."
+        description="Know the team behind Newartourandtravels in Jaigaon and near Phuentsholing, and how we design reliable Bhutan and Himalayan travel experiences."
         path="/about"
-        keywords="about newartourandtravels, jaigaon tour and travels company, bhutan travel experts jaigaon"
+        keywords="about newartourandtravels, jaigaon tour and travels company, phuentsholing tour and travels, bhutan travel experts"
         schema={schema}
       />
       {/* Hero Section */}
