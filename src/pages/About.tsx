@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/Image';
 import { Seo, seoSiteUrl } from '@/components/seo/Seo';
 import a1Image from '../../Images/a1.png';
 import a2Image from '../../Images/a2.png';
-import andyImage from '../../Images/andy.png';
+import andyImage from '../../Images/andy2.png';
 
 export function About() {
   const heroRef = useRef(null);
@@ -214,8 +214,8 @@ export function About() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
                 <div className="absolute bottom-10 left-10 right-10 text-center">
-                  <h3 className="text-3xl font-bold text-white uppercase tracking-tighter mb-2">Andy</h3>
-                  <p className="text-accent font-cursive text-2xl">Roshan Pradhan</p>
+                  <h3 className="text-3xl font-bold text-white uppercase tracking-tighter mb-2">Roshan Pradhan</h3>
+                  <p className="text-accent font-cursive text-2xl">Andy</p>
                 </div>
               </div>
               {/* Decorative gold element */}
@@ -235,7 +235,7 @@ export function About() {
                 "Travel is not just about seeing new places; it's about seeing the world with new eyes. At Newartourandtravels, we don't just sell tours; we craft life-changing experiences that stay with you forever."
               </p>
               <p className="text-gray-400 font-sub leading-relaxed mb-8 text-lg">
-                Hi, I’m Andy — your travel partner and host. I specialize in creating seamless and memorable journeys. If you have any questions or need assistance, feel free to reach out anytime.
+                Hi, I’m Roshan Pradhan — your travel partner and host. I specialize in creating seamless and memorable journeys. If you have any questions or need assistance, feel free to reach out anytime.
               </p>
             </motion.div>
           </div>
